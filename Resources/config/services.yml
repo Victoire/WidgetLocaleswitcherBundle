@@ -1,0 +1,17 @@
+services:
+    victoire_core.widget_localeswitcher_content_resolver:
+        class: Victoire\Widget\LocaleSwitcherBundle\Resolver\WidgetLocaleSwitcherContentResolver
+        parent: victoire_widget.base_widget_content_resolver
+        arguments: ['%victoire_i18n.available_locales%', '@doctrine.orm.entity_manager', "@victoire_page.page_helper", "@victoire_core.current_view", "@victoire_i18n.locale_resolver", "%victoire_i18n.locale_pattern%"]
+        tags:
+            - { name: victoire_widget.widget_content_resolver, alias: LocaleSwitcher }
+
+    #alias to the entity
+    victoire.widget.localeswitcher:
+        class: Victoire\Widget\LocaleSwitcherBundle\Entity\WidgetLocaleSwitcher
+
+    #alias to the form
+    victoire.widget.form.localeswitcher:
+        class: Victoire\Widget\LocaleSwitcherBundle\Form\WidgetLocaleSwitcherType
+        tags:
+            - { name: form.type , alias: victoire_widget_form_localeswitcher }

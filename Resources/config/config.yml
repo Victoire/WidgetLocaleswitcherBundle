@@ -1,0 +1,11 @@
+victoire_core:
+    widgets:
+        LocaleSwitcher:
+            class: "Victoire\\Widget\\LocaleSwitcherBundle\\Entity\\WidgetLocaleSwitcher"
+            name: LocaleSwitcher
+            
+jms_translation:
+    configs:
+        victoire_localeswitcher_bundle:
+            dirs: ["@VictoireLocaleSwitcherBundle"]
+            output_dir: "@VictoireLocaleSwitcherBundle/Resources/translations"

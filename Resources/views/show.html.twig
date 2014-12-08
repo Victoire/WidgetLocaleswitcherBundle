@@ -1,0 +1,18 @@
+{% extends 'VictoireCoreBundle:Widget:show.html.twig' %}
+
+{% block content %}
+
+<div class="btn-group">
+   <button type="button" class="btn btn-primary dropdown-toggle" 
+      data-toggle="dropdown">
+       <span class="caret"></span>
+   </button>
+        <ul class="dropdown-menu">
+        {% for locale, linkParameters in translations %}
+            <li>
+                {{ vic_link(linkParameters, locale, {'class': 'flag-' ~ locale }) }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}
