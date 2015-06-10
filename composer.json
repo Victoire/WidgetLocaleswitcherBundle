@@ -1,9 +1,8 @@
 {
-    "name": "appventus/localeswitcher-widget",
+    "name": "friendsofvictoire/localeswitcher-widget",
     "type": "symfony-bundle",
     "description": "Victoire DCMS LocaleSwitcher widget",
     "keywords": ["cms", "victoire", "LocaleSwitcher", "widget"],
-    "homepage": "http://appventus.com",
     "license": "MIT",
     "authors": [
         {
@@ -18,7 +17,8 @@
     "require": {
         "php"                      : ">=5.3.3",
         "symfony/framework-bundle" : "~2.3",
-        "victoire/victoire"        : "dev-master"    },
+        "victoire/victoire"        : "dev-master"
+    },
     "autoload": {
         "psr-0": { "Victoire\\Widget\\LocaleSwitcherBundle": "" }
     },
