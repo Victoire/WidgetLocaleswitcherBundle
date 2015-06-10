@@ -65,6 +65,7 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
         $i18n = $this->currentViewHelper->getCurrentView()->getI18n();
         unset($this->locales[$currentView->getLocale()]);
 
+        $translations = array();
         foreach ($this->locales as $locale) {
             //get the homepage if the page doesn't exists in the given locale
             if (null === $page = $i18n->getTranslation($locale)) {
@@ -73,9 +74,9 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
 
             //build page parameters to build a link in front
             $pageParameters = array(
-                'linkType' => 'page',
-                'page'     => $page,
-                'target'   => '_parent'
+                'linkType'      => 'viewReference',
+                'viewReference' => $this->pageHelper->getViewReferenceByView($page),
+                'target'        => '_parent'
             );
 
             $translations[$locale] = $pageParameters;
