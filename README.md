@@ -1,11 +1,15 @@
-Victoire CMS LocaleSwitcher Bundle
+Victoire DCMS LocaleSwitcher Bundle
 ============
 
-Need to add a localeswitcher in a victoire cms website ?
-Get this localeswitcher bundle and so on
+##What is the purpose of this bundle
 
-First you need to have a valid Symfony2 Victoire edition.
-Then you just have to run the following composer command :
+This bundles gives you access to the *LocaleSwitcher Widget* which enables a language switcher on your website.
+
+##Set Up Victoire
+
+If you haven't already, you can follow the steps to set up Victoire *[here](https://github.com/Victoire/victoire/blob/master/setup.md)*
+
+##Install the bundle
 
     php composer.phar require friendsofvictoire/localeswitcher-bundle
 
