@@ -2,15 +2,15 @@
 
 namespace Victoire\Widget\LocaleSwitcherBundle\Resolver;
 
-use Victoire\Bundle\WidgetBundle\Model\Widget;
-use Victoire\Bundle\WidgetBundle\Resolver\BaseWidgetContentResolver;
 use Doctrine\ORM\EntityManager;
-use Victoire\Bundle\PageBundle\Helper\PageHelper;
 use Victoire\Bundle\CoreBundle\Helper\CurrentViewHelper;
 use Victoire\Bundle\I18nBundle\Resolver\LocaleResolver;
+use Victoire\Bundle\PageBundle\Helper\PageHelper;
+use Victoire\Bundle\WidgetBundle\Model\Widget;
+use Victoire\Bundle\WidgetBundle\Resolver\BaseWidgetContentResolver;
 
 /**
- * CRUD operations on WidgetLocaleSwitcher Widget
+ * CRUD operations on WidgetLocaleSwitcher Widget.
  *
  * The widget view has two parameters: widget and content
  *
@@ -34,7 +34,6 @@ use Victoire\Bundle\I18nBundle\Resolver\LocaleResolver;
  */
 class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
 {
-
     protected $locales;
     protected $em;
     protected $pageHelper;
@@ -51,8 +50,10 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
         $this->localeResolver = $localeResolver;
         $this->localePattern = $localePattern;
     }
+
     /**
-     * Get the static content of the widget
+     * Get the static content of the widget.
+     *
      * @param Widget $widget
      *
      * @return string The static content
@@ -65,7 +66,7 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
         $i18n = $this->currentViewHelper->getCurrentView()->getI18n();
         unset($this->locales[$currentView->getLocale()]);
 
-        $translations = array();
+        $translations = [];
         foreach ($this->locales as $locale) {
             //get the homepage if the page doesn't exists in the given locale
             if (null === $page = $i18n->getTranslation($locale)) {
@@ -73,11 +74,11 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
             }
 
             //build page parameters to build a link in front
-            $pageParameters = array(
+            $pageParameters = [
                 'linkType'      => 'viewReference',
                 'viewReference' => $this->pageHelper->getViewReferenceByView($page),
-                'target'        => '_parent'
-            );
+                'target'        => '_parent',
+            ];
 
             $translations[$locale] = $pageParameters;
         }
@@ -87,7 +88,8 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
     }
 
     /**
-     * Get the business entity content
+     * Get the business entity content.
+     *
      * @param Widget $widget
      *
      * @return string
@@ -98,7 +100,8 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
     }
 
     /**
-     * Get the content of the widget by the entity linked to it
+     * Get the content of the widget by the entity linked to it.
+     *
      * @param Widget $widget
      *
      * @return string
@@ -109,7 +112,8 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
     }
 
     /**
-     * Get the content of the widget for the query mode
+     * Get the content of the widget for the query mode.
+     *
      * @param Widget $widget
      *
      * @throws \Exception
