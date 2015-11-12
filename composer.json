@@ -2,7 +2,7 @@
     "name": "friendsofvictoire/localeswitcher-widget",
     "type": "symfony-bundle",
     "description": "Victoire DCMS LocaleSwitcher widget",
-    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "FoV", "Dynamic", "CMS", "LocalSwitcher", "Locale"],
+    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "FoV", "Dynamic", "CMS", "LocaleSwitcher", "Locale"],
     "homepage": "http://victoire.io",
     "license": "MIT",
     "authors": [
