@@ -8,11 +8,11 @@
     <body>
       <trans-unit resname="widget.localeswitcher.new.action.label">
         <source>widget.localeswitcher.new.action.label</source>
-        <target state="new">Language selector<</target>
+        <target state="new">Language selector</target>
       </trans-unit>
       <trans-unit resname="modal.form.widget.type.localeswitcher.label">
         <source>modal.form.widget.type.localeswitcher.label</source>
-        <target state="new">Language selector<</target>
+        <target state="new">Language selector</target>
       </trans-unit>
     </body>
   </file>
