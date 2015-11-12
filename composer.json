@@ -1,28 +1,45 @@
 {
-    "name": "friendsofvictoire/localeswitcher-widget",
-    "type": "symfony-bundle",
-    "description": "Victoire DCMS LocaleSwitcher widget",
-    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "FoV", "Dynamic", "CMS", "LocaleSwitcher", "Locale"],
-    "homepage": "http://victoire.io",
-    "license": "MIT",
-    "authors": [
+    "name"             : "friendsofvictoire/localeswitcher-widget",
+    "type"             : "symfony-bundle",
+    "description"      : "Victoire DCMS LocaleSwitcher widget",
+    "keywords"         : [
+        "DCMS",
+        "Victoire",
+        "widget",
+        "FriendsofVictoire",
+        "FoV",
+        "Dynamic",
+        "CMS",
+        "LocaleSwitcher",
+        "Locale"
+    ],
+    "homepage"         : "http://victoire.io",
+    "license"          : "MIT",
+    "authors"          : [
         {
-            "name": "Leny BERNARD",
+            "name" : "Leny BERNARD",
             "email": "leny@victoire.io"
         },
         {
-            "name": "Loic GOYET",
+            "name" : "Loic GOYET",
             "email": "loic@victoire.io"
         }
     ],
-    "require": {
-        "php"                      : ">=5.3.3",
-        "symfony/framework-bundle" : "~2.3",
-        "victoire/victoire"        : "~1.3.0"
+    "require"          : {
+        "php"                     : ">=5.3.3",
+        "symfony/framework-bundle": "~2.3",
+        "victoire/victoire"       : "~1.3.0"
     },
-    "autoload": {
-        "psr-0": { "Victoire\\Widget\\LocaleSwitcherBundle": "" }
+    "autoload"         : {
+        "psr-0": {
+            "Victoire\\Widget\\LocaleSwitcherBundle": ""
+        }
     },
     "minimum-stability": "dev",
-    "target-dir": "Victoire/Widget/LocaleSwitcherBundle"
+    "target-dir"       : "Victoire/Widget/LocaleSwitcherBundle",
+    "extra"            : {
+        "branch-alias": {
+            "dev-master": "1.3-dev"
+        }
+    }
 }
