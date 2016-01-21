@@ -5,7 +5,7 @@ namespace Victoire\Widget\LocaleSwitcherBundle\Resolver;
 use Doctrine\ORM\EntityManager;
 use Victoire\Bundle\CoreBundle\Helper\CurrentViewHelper;
 use Victoire\Bundle\I18nBundle\Resolver\LocaleResolver;
-use Victoire\Bundle\PageBundle\Helper\PageHelper;
+use Victoire\Bundle\ViewReferenceBundle\Connector\ViewReferenceRepository;
 use Victoire\Bundle\WidgetBundle\Model\Widget;
 use Victoire\Bundle\WidgetBundle\Resolver\BaseWidgetContentResolver;
 
@@ -36,16 +36,16 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
 {
     protected $locales;
     protected $em;
-    protected $pageHelper;
+    protected $viewReferenceRepository;
     protected $currentViewHelper;
     protected $localeResolver;
     protected $localePattern;
 
-    public function __construct($locales, EntityManager $em, PageHelper $pageHelper, CurrentViewHelper $currentViewHelper, LocaleResolver $localeResolver, $localePattern)
+    public function __construct($locales, EntityManager $em, ViewReferenceRepository $viewReferenceRepository, CurrentViewHelper $currentViewHelper, LocaleResolver $localeResolver, $localePattern)
     {
         $this->locales = $locales;
         $this->em = $em;
-        $this->pageHelper = $pageHelper;
+        $this->viewReferenceRepository = $viewReferenceRepository;
         $this->currentViewHelper = $currentViewHelper;
         $this->localeResolver = $localeResolver;
         $this->localePattern = $localePattern;
@@ -76,7 +76,7 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
             //build page parameters to build a link in front
             $pageParameters = [
                 'linkType'      => 'viewReference',
-                'viewReference' => $this->pageHelper->getViewReferenceByView($page),
+                'viewReference' => $this->viewReferenceRepository->getOneReferenceByParameters(['viewId' => $page->getId()])->getId(),
                 'target'        => '_parent',
             ];
 
