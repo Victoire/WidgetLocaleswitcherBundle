@@ -1,0 +1,30 @@
+#header {
+  .localeSwitcher {
+    z-index: 1;
+    .btn {
+      padding-top: 6px;
+      padding-right: 7px;
+      padding-bottom: 6px;
+      padding-left: 7px;
+      line-height: 18px;
+    }
+    .dropdown-menu {
+      min-width: 0;
+      > li > a {
+        padding: 4px 0;
+        width: 56px;
+        text-align: center;
+      }
+    }
+    .localeSwitcher-flag {
+      width: 24px;
+      height: 24px;
+    }
+    .localeSwitcher-flag + .caret {
+      margin-left: 6px;
+    }
+    .caret + .localeSwitcher-flag {
+      margin-left: 6px;
+    }
+  }
+}

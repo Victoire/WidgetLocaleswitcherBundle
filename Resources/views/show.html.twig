@@ -1,18 +1,22 @@
 {% extends 'VictoireCoreBundle:Widget:show.html.twig' %}
 
 {% block content %}
+    <div class="btn-group localeSwitcher">
+        {% spaceless %}
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <img class="localeSwitcher-flag" src="{{ asset('/bundles/victoirewidgetlocaleswitcher/images/flags/' ~ app.request.locale ~ '.png') }}">
 
-<div class="btn-group">
-   <button type="button" class="btn btn-primary dropdown-toggle" 
-      data-toggle="dropdown">
-       <span class="caret"></span>
-   </button>
-        <ul class="dropdown-menu">
-        {% for locale, linkParameters in translations %}
-            <li>
-                {{ vic_link(linkParameters, locale, {'class': 'flag-' ~ locale }) }}
-            </li>
-        {% endfor %}
-    </ul>
-</div>
+                <span class="caret"></span>
+            </button>
+        {% endspaceless %}
+
+        <ul class="dropdown-menu" role="menu">
+            {% for locale, linkParameters in translations %}
+                <li>
+                    {% set linkLabel = '<img class="localeSwitcher-flag" src="' ~ asset('/bundles/victoirewidgetlocaleswitcher/images/flags/' ~ locale ~ '.png') ~ '"/>'  %}
+                    {{ vic_link(linkParameters, linkLabel, {'class': 'flag-' ~ locale }) }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock content %}

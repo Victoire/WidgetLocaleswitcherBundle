@@ -1,0 +1,12 @@
+{
+    "require_all":
+    {
+        "stylesheets":
+        {
+            "head":
+            [
+                "@VictoireWidgetLocaleSwitcherBundle/Resources/style/locale-switcher.scss"
+            ]
+        }
+    }
+}
