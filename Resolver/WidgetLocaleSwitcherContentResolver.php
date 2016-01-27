@@ -69,18 +69,21 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
         $translations = [];
         foreach ($this->locales as $locale) {
             //get the homepage if the page doesn't exists in the given locale
-            if (null === $page = $i18n->getTranslation($locale)) {
+            if (!$i18n || null === $page = $i18n->getTranslation($locale)) {
                 $page = $this->em->getRepository('VictoirePageBundle:BasePage')->findOneByHomepage($locale);
             }
 
-            //build page parameters to build a link in front
-            $pageParameters = [
-                'linkType'      => 'viewReference',
-                'viewReference' => $this->viewReferenceRepository->getOneReferenceByParameters(['viewId' => $page->getId()])->getId(),
-                'target'        => '_parent',
-            ];
 
-            $translations[$locale] = $pageParameters;
+            if ($page) {
+                //build page parameters to build a link in front
+                $pageParameters = [
+                    'linkType'      => 'viewReference',
+                    'viewReference' => $this->viewReferenceRepository->getOneReferenceByParameters(['viewId' => $page->getId()])->getId(),
+                    'target'        => '_parent',
+                ];
+
+                $translations[$locale] = $pageParameters;
+            }
         }
         $widgetParams['translations'] = $translations;
 
