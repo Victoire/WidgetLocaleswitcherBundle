@@ -3,7 +3,7 @@
 namespace Victoire\Widget\LocaleSwitcherBundle\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Victoire\Bundle\CoreBundle\Form\WidgetType;
 
 /**
@@ -12,40 +12,16 @@ use Victoire\Bundle\CoreBundle\Form\WidgetType;
 class WidgetLocaleSwitcherType extends WidgetType
 {
     /**
-     * define form fields.
-     *
-     * @param FormBuilderInterface $builder
-     *
-     * @param array $options
+     * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        parent::buildForm($builder, $options);
-    }
-
-    /**
-     * bind form to WidgetLocaleSwitcher entity.
-     *
-     * @param OptionsResolverInterface $resolver
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        parent::setDefaultOptions($resolver);
+        parent::configureOptions($resolver);
 
         $resolver->setDefaults([
             'data_class'         => 'Victoire\Widget\LocaleSwitcherBundle\Entity\WidgetLocaleSwitcher',
             'widget'             => 'LocaleSwitcher',
             'translation_domain' => 'victoire',
         ]);
-    }
-
-    /**
-     * get form name.
-     *
-     * @return string The form name
-     */
-    public function getName()
-    {
-        return 'victoire_widget_form_localeswitcher';
     }
 }

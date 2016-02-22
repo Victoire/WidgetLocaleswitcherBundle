@@ -20,4 +20,4 @@ services:
     victoire.widget.form.localeswitcher:
         class: Victoire\Widget\LocaleSwitcherBundle\Form\WidgetLocaleSwitcherType
         tags:
-            - { name: form.type , alias: victoire_widget_form_localeswitcher }
+            - { name: form.type }

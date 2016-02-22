@@ -3,6 +3,7 @@
 namespace Victoire\Widget\LocaleSwitcherBundle\Resolver;
 
 use Doctrine\ORM\EntityManager;
+use Victoire\Bundle\CoreBundle\Entity\WebViewInterface;
 use Victoire\Bundle\CoreBundle\Helper\CurrentViewHelper;
 use Victoire\Bundle\I18nBundle\Resolver\LocaleResolver;
 use Victoire\Bundle\ViewReferenceBundle\Connector\ViewReferenceRepository;
@@ -73,13 +74,12 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
                 $page = $this->em->getRepository('VictoirePageBundle:BasePage')->findOneByHomepage($locale);
             }
 
-
-            if ($page) {
+            if ($page instanceof WebViewInterface) {
                 //build page parameters to build a link in front
                 $pageParameters = [
-                    'linkType'      => 'viewReference',
+                    'linkType' => 'viewReference',
                     'viewReference' => $this->viewReferenceRepository->getOneReferenceByParameters(['viewId' => $page->getId()])->getId(),
-                    'target'        => '_parent',
+                    'target' => '_parent',
                 ];
 
                 $translations[$locale] = $pageParameters;
