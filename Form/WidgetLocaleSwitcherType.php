@@ -2,7 +2,6 @@
 
 namespace Victoire\Widget\LocaleSwitcherBundle\Form;
 
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Victoire\Bundle\CoreBundle\Form\WidgetType;
 
