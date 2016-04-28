@@ -35,7 +35,7 @@
     "target-dir": "Victoire/Widget/LocaleSwitcherBundle",
     "extra": {
         "branch-alias": {
-            "dev-master": "1.3.x-dev"
+            "dev-master": "1.5.x-dev"
         }
     }
 }
