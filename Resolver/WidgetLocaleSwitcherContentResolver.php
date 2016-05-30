@@ -65,7 +65,7 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
 
         $currentView = $this->currentViewHelper->getCurrentView();
         $viewTranslations = $currentView->getTranslations();
-        unset($this->locales[$currentView->getLocale()]);
+        unset($this->locales[$currentView->getCurrentLocale()]);
 
         $translations = [];
         foreach ($this->locales as $locale) {
@@ -74,7 +74,7 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
             //Get the page in the given locale
             foreach ($viewTranslations as $viewTranslation) {
                 if ($viewTranslation->getLocale() == $locale) {
-                    $page = $viewTranslation->getObject();
+                    $page = $viewTranslation->getTranslatable();
                     break;
                 }
             }

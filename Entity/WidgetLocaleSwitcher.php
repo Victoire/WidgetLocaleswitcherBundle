@@ -15,8 +15,7 @@ class WidgetLocaleSwitcher extends Widget
 {
     /**
      * To String function
-     * Used in render choices type (Especially in VictoireWidgetRenderBundle)
-     * //TODO Check the generated value and make it more consistent.
+     * Used in render choices type (Especially in VictoireWidgetRenderBundle).
      *
      * @return string
      */

@@ -24,7 +24,7 @@
     "require": {
         "php": ">=5.5.9",
         "symfony/framework-bundle": "~2.8|~3.0",
-        "victoire/victoire": "~1.5"
+        "victoire/victoire": "~1.6"
     },
     "autoload": {
         "psr-0": {
@@ -35,7 +35,7 @@
     "target-dir": "Victoire/Widget/LocaleSwitcherBundle",
     "extra": {
         "branch-alias": {
-            "dev-master": "1.5.x-dev"
+            "dev-master": "1.6.x-dev"
         }
     }
 }
