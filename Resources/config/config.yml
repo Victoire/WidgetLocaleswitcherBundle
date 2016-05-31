@@ -3,6 +3,7 @@ victoire_core:
         LocaleSwitcher:
             class: "Victoire\\Widget\\LocaleSwitcherBundle\\Entity\\WidgetLocaleSwitcher"
             name: LocaleSwitcher
+            cache: false
             
 jms_translation:
     configs:
