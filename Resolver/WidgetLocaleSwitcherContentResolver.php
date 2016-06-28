@@ -86,14 +86,16 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
 
             if ($page instanceof WebViewInterface) {
                 //build page parameters to build a link in front
-                $pageParameters = [
-                    'linkType'      => 'viewReference',
-                    'viewReference' => $this->viewReferenceRepository->getOneReferenceByParameters(['viewId' => $page->getId(), 'locale' => $locale])->getId(),
-                    'target'        => '_parent',
-                    'locale'        => $locale,
-                ];
+                if ($viewReference = $this->viewReferenceRepository->getOneReferenceByParameters(['viewId' => $page->getId(), 'locale' => $locale])) {
+                    $pageParameters = [
+                        'linkType'      => 'viewReference',
+                        'viewReference' => $viewReference->getId(),
+                        'target'        => '_parent',
+                        'locale'        => $locale,
+                    ];
 
-                $translations[$locale] = $pageParameters;
+                    $translations[$locale] = $pageParameters;
+                }
             }
         }
         $widgetParams['translations'] = $translations;
