@@ -3,20 +3,23 @@
 {% block content %}
     <div class="btn-group localeSwitcher">
         {% spaceless %}
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <button type="button" class="btn btn-default dropdown-toggle{% if translations|length == 0 %} disabled{% endif %}" data-toggle="dropdown" aria-expanded="false">
                 <img class="localeSwitcher-flag" src="{{ asset('/bundles/victoirewidgetlocaleswitcher/images/flags/' ~ app.request.locale ~ '.png') }}">
 
+                {% if translations|length > 0 %}
                 <span class="caret"></span>
+                {% endif %}
             </button>
         {% endspaceless %}
-
-        <ul class="dropdown-menu" role="menu">
-            {% for locale, linkParameters in translations %}
-                <li>
-                    {% set linkLabel = '<img class="localeSwitcher-flag" src="' ~ asset('/bundles/victoirewidgetlocaleswitcher/images/flags/' ~ locale ~ '.png') ~ '"/>'  %}
-                    {{ vic_link(linkParameters, linkLabel, {'class': 'flag-' ~ locale }) }}
-                </li>
-            {% endfor %}
-        </ul>
+        {% if translations|length > 0 %}
+            <ul class="dropdown-menu" role="menu">
+                {% for locale, linkParameters in translations %}
+                    <li>
+                        {% set linkLabel = '<img class="localeSwitcher-flag" src="' ~ asset('/bundles/victoirewidgetlocaleswitcher/images/flags/' ~ locale ~ '.png') ~ '"/>'  %}
+                        {{ vic_link(linkParameters, linkLabel, {'class': 'flag-' ~ locale }) }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 {% endblock content %}
