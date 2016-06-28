@@ -70,7 +70,7 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
         $translations = [];
         foreach ($this->locales as $locale) {
             $page = null;
-            
+
             //Get the page in the given locale
             foreach ($viewTranslations as $viewTranslation) {
                 if ($viewTranslation->getLocale() == $locale) {
@@ -86,8 +86,7 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
 
             if ($page instanceof WebViewInterface) {
                 //build page parameters to build a link in front
-                if($viewReference =  $this->viewReferenceRepository->getOneReferenceByParameters(['viewId' => $page->getId(), 'locale' => $locale]))
-                {
+                if ($viewReference = $this->viewReferenceRepository->getOneReferenceByParameters(['viewId' => $page->getId(), 'locale' => $locale])) {
                     $pageParameters = [
                         'linkType'      => 'viewReference',
                         'viewReference' => $viewReference->getId(),
