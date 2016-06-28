@@ -16,7 +16,7 @@
                 {% for locale, linkParameters in translations %}
                     <li>
                         {% set linkLabel = '<img class="localeSwitcher-flag" src="' ~ asset('/bundles/victoirewidgetlocaleswitcher/images/flags/' ~ locale ~ '.png') ~ '"/>'  %}
-                        {{ vic_link(linkParameters, linkLabel, {'class': 'flag-' ~ locale }) }}
+                        {{ vic_link(linkParameters, linkLabel, {'class': 'flag-' ~ locale, 'lang': locale, 'hreflang': locale }) }}
                     </li>
                 {% endfor %}
             </ul>
