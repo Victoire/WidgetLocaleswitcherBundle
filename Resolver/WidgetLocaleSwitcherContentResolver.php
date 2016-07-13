@@ -3,6 +3,7 @@
 namespace Victoire\Widget\LocaleSwitcherBundle\Resolver;
 
 use Doctrine\ORM\EntityManager;
+use Victoire\Bundle\BusinessPageBundle\Entity\VirtualBusinessPage;
 use Victoire\Bundle\CoreBundle\Entity\WebViewInterface;
 use Victoire\Bundle\CoreBundle\Helper\CurrentViewHelper;
 use Victoire\Bundle\I18nBundle\Resolver\LocaleResolver;
@@ -85,8 +86,14 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
             }
 
             if ($page instanceof WebViewInterface) {
+                $params = ['viewId' => $page->getId(), 'locale' => $locale];
+                if ($page instanceof VirtualBusinessPage) {
+                    unset($params['viewId']);
+                    $params['templateId'] = $page->getTemplate()->getId();
+                    $params['entityId'] = $page->getBusinessEntity()->getId();
+                }
                 //build page parameters to build a link in front
-                if ($viewReference = $this->viewReferenceRepository->getOneReferenceByParameters(['viewId' => $page->getId(), 'locale' => $locale])) {
+                if ($viewReference = $this->viewReferenceRepository->getOneReferenceByParameters($params)) {
                     $pageParameters = [
                         'linkType'      => 'viewReference',
                         'viewReference' => $viewReference->getId(),
