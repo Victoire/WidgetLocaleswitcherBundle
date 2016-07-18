@@ -64,7 +64,7 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
     {
         $widgetParams = parent::getWidgetStaticContent($widget);
 
-        $currentView = $this->currentViewHelper->getCurrentView();
+        $currentView = $this->currentViewHelper->getMainCurrentView();
         $viewTranslations = $currentView->getTranslations();
         unset($this->locales[$currentView->getCurrentLocale()]);
 
