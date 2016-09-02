@@ -42,15 +42,35 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
     protected $currentViewHelper;
     protected $localeResolver;
     protected $localePattern;
+    protected $extraLocalizedLinks;
 
-    public function __construct($locales, EntityManager $em, ViewReferenceRepository $viewReferenceRepository, CurrentViewHelper $currentViewHelper, LocaleResolver $localeResolver, $localePattern)
-    {
+    /**
+     * WidgetLocaleSwitcherContentResolver constructor.
+     *
+     * @param $locales
+     * @param EntityManager           $em
+     * @param ViewReferenceRepository $viewReferenceRepository
+     * @param CurrentViewHelper       $currentViewHelper
+     * @param LocaleResolver          $localeResolver
+     * @param array                   $localePattern
+     * @param array                   $extraLocalizedLinks
+     */
+    public function __construct(
+        $locales,
+        EntityManager $em,
+        ViewReferenceRepository $viewReferenceRepository,
+        CurrentViewHelper $currentViewHelper,
+        LocaleResolver $localeResolver,
+        $localePattern,
+        $extraLocalizedLinks
+    ) {
         $this->locales = $locales;
         $this->em = $em;
         $this->viewReferenceRepository = $viewReferenceRepository;
         $this->currentViewHelper = $currentViewHelper;
         $this->localeResolver = $localeResolver;
         $this->localePattern = $localePattern;
+        $this->extraLocalizedLinks = $extraLocalizedLinks;
     }
 
     /**
@@ -105,6 +125,8 @@ class WidgetLocaleSwitcherContentResolver extends BaseWidgetContentResolver
                 }
             }
         }
+
+        $widgetParams['extraLocalizedLinks'] = $this->extraLocalizedLinks;
         $widgetParams['translations'] = $translations;
 
         return $widgetParams;

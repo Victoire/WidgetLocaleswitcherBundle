@@ -20,9 +20,14 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('victoire_widget_locale_switcher');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->arrayNode('extraLocalizedLinks')
+                    ->useAttributeAsKey(true)
+                    ->prototype('scalar')
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }

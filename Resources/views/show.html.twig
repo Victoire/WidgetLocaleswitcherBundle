@@ -19,6 +19,13 @@
                         {{ vic_link(linkParameters, linkLabel, {'class': 'flag-' ~ locale, 'lang': locale, 'hreflang': locale }) }}
                     </li>
                 {% endfor %}
+                {% for locale, link in extraLocalizedLinks %}
+                    <li>
+                        <a href="{{ link }}" class="flag-{{ locale }}" lang="{{ locale }}" hreflang="{{ locale }}">
+                            <img class="localeSwitcher-flag" src="{{ asset('/bundles/victoirewidgetlocaleswitcher/images/flags/' ~ locale ~ '.png') }}"/>
+                        </a>
+                    </li>
+                {% endfor %}
             </ul>
         {% endif %}
     </div>
