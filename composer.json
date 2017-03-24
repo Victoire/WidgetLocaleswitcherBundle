@@ -1,5 +1,5 @@
 {
-    "name": "friendsofvictoire/localeswitcher-widget",
+    "name": "victoire/localeswitcher-widget",
     "type": "symfony-bundle",
     "description": "Victoire DCMS LocaleSwitcher widget",
     "keywords": [
