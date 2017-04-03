@@ -1,14 +1,11 @@
 {
     "name": "victoire/localeswitcher-widget",
     "type": "symfony-bundle",
-    "description": "Victoire DCMS LocaleSwitcher widget",
+    "description": "Victoire LocaleSwitcher widget",
     "keywords": [
-        "DCMS",
         "Victoire",
-        "widget",
-        "FriendsofVictoire",
         "LocaleSwitcher",
-        "Locale"
+        "Widget"
     ],
     "license": "MIT",
     "authors": [
@@ -22,9 +19,7 @@
         }
     ],
     "require": {
-        "php": ">=5.5.9",
-        "symfony/framework-bundle": "~2.8|~3.0",
-        "victoire/victoire": "~2 | ~3.0"
+        "victoire/victoire": "~2.3 | ~3.0"
     },
     "autoload": {
         "psr-0": {
