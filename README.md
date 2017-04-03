@@ -9,7 +9,7 @@ This bundles gives you access to the *LocaleSwitcher Widget* which enables a lan
 
 ## Set Up Victoire
 
-If you haven't already, you can follow the steps to set up Victoire *[here](https://github.com/Victoire/victoire/blob/master/setup.md)*
+If you haven't already, you can follow the steps to set up Victoire *[here](https://github.com/Victoire/victoire/blob/master/doc/setup.md)*
 
 ## Install the bundle
 
