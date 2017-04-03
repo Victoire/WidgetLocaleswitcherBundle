@@ -1,6 +1,6 @@
 [![CircleCI](https://circleci.com/gh/Victoire/WidgetLocaleswitcherBundle.svg?style=shield)](https://circleci.com/gh/Victoire/WidgetLocaleswitcherBundle)
 
-Victoire DCMS LocaleSwitcher Bundle
+Victoire LocaleSwitcher Bundle
 ============
 
 ## What is the purpose of this bundle
